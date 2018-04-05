@@ -2,7 +2,7 @@ var global_id = 1;
 var global_count = 0;
 var global_position = 0;
 var global_turns = 0;
-var actors = [];
+var actors = [1];
 var sorted = false;
 var toggle_delete = true;
 var toggle_clear = false;
@@ -22,6 +22,14 @@ $(function () {
         var i_cha = $("#cha").val();
         var i_hp = $("#hp").val();
         var i_notes = $("#notes").val();
+
+        if (i_init == "roll") {
+            i_init = getRandomInt(20) + 1;
+        }
+
+        if (i_hp == "") {
+            i_hp = 0;
+        }
 
         actors[i_id] = new Character(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
         createTableRow(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
@@ -86,7 +94,7 @@ $(function () {
 
     $("#legendary-enemy").click(function () {
         var i_id = global_id;
-        var i_name = "Legendary Enemy " + global_id;
+        var i_name = "Legend Enemy " + global_id;
         var i_init = getRandomInt(20) + 1;
         var i_ac = getRandomInt(10) + 18;
         var i_str = getRandomInt(15) + 15;
@@ -118,6 +126,30 @@ $(function () {
         sortTable();
     });
 
+    $("#close-export").click(function () {
+        $(".overlay#export-page").fadeOut();
+        $("#export-code").val("");
+    });
+
+    $("#close-import").click(function () {
+        $(".overlay#import-page").fadeOut();
+        $("#export-code").val("");
+    });
+
+    $("#import").click(function () {
+        $(".overlay#import-page").fadeIn();
+    });
+
+    $("#export").click(function () {
+        $(".overlay#export-page").fadeIn();
+        exportActorData();
+    });
+
+
+    $("#start-import").click(function () {
+        importActorData();
+    });
+
     $("#toggle-delete").click(function () {
 
         if ($(this).hasClass("active")) {
@@ -146,6 +178,37 @@ $(function () {
 
     });
 
+    $(".toggle").click(function () {
+        if ((toggle_delete == false) && (toggle_clear == false)) {
+                actors[0] = 0;
+        }
+        if ((toggle_delete == true) && (toggle_clear == false)) {
+                actors[0] = 1;
+        }
+        if ((toggle_delete == true) && (toggle_clear == true)) {
+                actors[0] = 2;
+        }
+        if ((toggle_delete == false) && (toggle_clear == true)) {
+                actors[0] = 3;
+        }
+    });
+
+    $(document).on('input change keyup', 'textarea.note-holder', function () {
+        var myindex = $(this).parent().parent().attr("data-actor");
+        actors[myindex].notes = $(this).val();
+    });
+
+    $(document).on('input change keyup', '.init input', function () {
+        var myindex = $(this).parent().parent().attr("data-actor");
+        actors[myindex].init = $(this).val();
+        $(this).parent().parent().attr("data-init", $(this).val());
+    });
+
+    $(document).on('input change keyup', '.hp input', function () {
+        var myindex = $(this).parent().parent().attr("data-actor");
+        actors[myindex].hp = $(this).val();
+    });
+
 
 
     $(document).on('click', 'button.dmg-actor', function () {
@@ -153,7 +216,7 @@ $(function () {
         var id = $(this).parent().parent().attr("data-actor");
         var hitvalue = getDamage(id);
 
-        $(this).parent().parent().find(".hp").text(hitvalue);
+        $(this).parent().parent().find(".hp input").val(hitvalue);
         if (parseInt(hitvalue) <= 0) {
             $(this).parent().parent().css('background', "#ffdddd");
             $(this).parent().parent().addClass("dead");
@@ -165,7 +228,7 @@ $(function () {
 
         var id = $(this).parent().parent().attr("data-actor");
         var healvalue = healDamage(id);
-        $(this).parent().parent().find(".hp").val(healvalue);
+        $(this).parent().parent().find(".hp input").val(healvalue);
         if (parseInt(healvalue) > 0) {
             $(this).parent().parent().css('background', "#fff");
             $(this).parent().parent().removeClass("dead");
@@ -180,16 +243,19 @@ $(function () {
             if (confirm('Are you sure you want to delete this actor?')) {
                 $(this).parent().parent().remove();
                 var myindex = $(this).parent().parent().attr("data-actor");
-                actors.splice(myindex, 1);
+                actors[myindex] = undefined;
                 sortTable();
+
+                trackPosition(0);
             } else {
                 // Do nothing!
             }
         } else {
             $(this).parent().parent().remove();
             var myindex = $(this).parent().parent().attr("data-actor");
-            actors.splice(myindex, 1);
+            actors[myindex] = undefined;
             sortTable();
+            trackPosition(0);
         }
 
     });
@@ -197,11 +263,7 @@ $(function () {
     $(document).on('click', 'button#wipe-actors', function () {
 
         if (confirm('Are you sure you want to delete ALL actors?')) {
-            $(".actor-live").remove();
-            global_turns = 0;
-            global_position = 0;
-            $("#turns").text(global_turns);
-            actors = [];
+            deleteActorData();
         } else {
             // Do nothing!
         }
@@ -238,10 +300,8 @@ function createTableRow(cid, name, init, ac, str, dex, con, int, wis, cha, hp, n
     sorted = false;
     $("#next-turn").prop('disabled', true);
     $("#sort-msg").show();
-    if (init == "roll") {
-        init = getRandomInt(20) + 1;
-    }
-    $("#view-actors tbody").append("<tr data-actor='" + cid + "' data-init='" + init + "'id=actor-" + cid + " class='actor-live'><td>" + name + "</td><td class='init'>" + init + "</td><td>" + ac + "</td><td>" + str + "</td><td>" + dex + "</td><td>" + con + "</td><td>" + int + "</td><td>" + wis + "</td><td>" + cha + " </td><td class='hp'>" + hp + "</td><td><textarea>" + notes + "</textarea></td><td class='button-holder'><button class='dmg-actor'>Damage</button><button class='heal-actor'>Heal</button></td><td><button class='delete-actor'>Delete</button></td></tr>");
+
+    $("#view-actors tbody").append("<tr data-actor='" + cid + "' data-init='" + init + "'id=actor-" + cid + " class='actor-live'><td>" + name + "</td><td class='init'><input value='" + init + "'></td><td>" + ac + "</td><td>" + str + "</td><td>" + dex + "</td><td>" + con + "</td><td>" + int + "</td><td>" + wis + "</td><td>" + cha + " </td><td class='hp'><input value='" + hp + "'></td><td><textarea class='note-holder'>" + notes + "</textarea></td><td class='button-holder'><button class='dmg-actor'>Damage</button><button class='heal-actor'>Heal</button></td><td><button class='delete-actor'>Delete</button></td></tr>");
 
     global_id += 1;
 }
@@ -326,10 +386,104 @@ function trackPosition(change) {
         global_position = 1;
         global_turns += 1;
     } else {
-        global_position += 1;
+        global_position += change;
     }
 
     $("#turns").text(global_turns);
+    updateCells();
+}
+
+function exportActorData() {
+    actors.clean(undefined);
+    for (i = 0; i < actors.length; i++) {
+        $("#export-code").val($("#export-code").val() + JSON.stringify(actors[i]));
+
+        if (i + 1 != actors.length) {
+            $("#export-code").val($("#export-code").val() + "&| ");
+        }
+    }
+
+}
+
+function importActorData() {
+    if (confirm('WARNING! This will remove all actors currently on this page')) {
+        var import_code = $("#import-code").val();
+        var import_array = import_code.split("&|");
+        deleteActorData();
+        $("#import-code").val("");
+        $("#import-page").fadeOut();
+        actors = [import_array[0]];
+        
+        if(import_array[0] == 0){
+            toggle_delete = false;
+            toggle_clear = false;
+            $("#toggle-delete").removeClass("active");
+            $("#toggle-delete").text("CONFIRM DELETE: OFF");
+            $("#toggle-clear").removeClass("active");
+            $("#toggle-clear").text("CLEAR AFTER ADD: OFF");
+        }
+        
+        if(import_array[0] == 1){
+            toggle_delete = true;
+            toggle_clear = false;
+            $("#toggle-delete").addClass("active");
+            $("#toggle-delete").text("CONFIRM DELETE: ON");
+            $("#toggle-clear").removeClass("active");
+            $("#toggle-clear").text("CLEAR AFTER ADD: OFF");
+        }
+        
+        if(import_array[0] == 2){
+            toggle_delete = true;
+            toggle_clear = true;
+            $("#toggle-delete").addClass("active");
+            $("#toggle-delete").text("CONFIRM DELETE: ON");
+            $("#toggle-clear").addClass("active");
+            $("#toggle-clear").text("CLEAR AFTER ADD: ON");
+        }
+        
+        if(import_array[0] == 3){
+            toggle_delete = false;
+            toggle_clear = true;
+            $("#toggle-delete").removeClass("active");
+            $("#toggle-delete").text("CONFIRM DELETE: OFF");
+            $("#toggle-clear").addClass("active");
+            $("#toggle-clear").text("CLEAR AFTER ADD: ON");
+        }
+
+        for (i = 1; i < import_array.length; i++) {
+            var obj = jQuery.parseJSON(import_array[i]);
+            actors[i] = new Character(i, obj.name, obj.init, obj.ac, obj.str, obj.dex, obj.con, obj.int, obj.wis, obj.cha, obj.hp, obj.notes);
+            createTableRow(i, obj.name, obj.init, obj.ac, obj.str, obj.dex, obj.con, obj.int, obj.wis, obj.cha, obj.hp, obj.notes);
+        }
+    } else {
+        // Do nothing!
+    }
+
+
+}
+
+Array.prototype.clean = function (deleteValue) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == deleteValue) {
+            this.splice(i, 1);
+            i--;
+        }
+    }
+    return this;
+};
+
+function deleteActorData() {
+    global_turns = 0;
+    global_position = 0;
+    $("#turns").text(global_turns);
+    $("#view-actors tr").each(function () {
+        var myindex = $(this).attr("data-actor");
+        actors[myindex] = undefined;
+    });
+    $(".actor-live").remove();
+}
+
+function updateCells() {
     $("#view-actors tr").css("background", "white");
     $("#view-actors tr.dead").css("background", "#ffdddd");
     $("#view-actors tr").each(function () {

@@ -5,6 +5,7 @@
     <title>Instant Initiative - DnD Tracker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/skeleton.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -20,13 +21,9 @@
                 <h1>Instant Initiative</h1>
                 <p class="caption">A DnD Initiative Tracker</p>
                 <button id="collapse" class="open">COLLAPSE CREATOR</button>
+                <button id="import">IMPORT ACTORS</button>
+                <button id="export">EXPORT ACTORS</button>
             </div>
-            <div class="row">
-                <div class="twelve columns">
-                    <button id="toggle-delete" class="active toggle">CONFIRM DELETE: ON</button>
-                <button id="toggle-clear" class="toggle">CLEAR AFTER ADD: OFF</button>
-                </div>
-            </div>    
         </div>
         <div class="row creator">
             <div class="twelve columns">
@@ -132,7 +129,61 @@
                 <button id="wipe-actors">RESET ALL</button>
             </div>
             <div class="six columns">
-                <button id="next-turn" class="button-primary" disabled>ADVANCE TURN</button><span id="sort-msg">  Please sort before advancing</span>
+                <button id="next-turn" disabled>ADVANCE TURN</button><span id="sort-msg" class="warning">  Please sort before advancing</span>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="export-page">
+        <div class="container">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Export Actor Data</h1>
+                    <p>Copy the code below and save it on your computer! You can paste it in the import tab at any time to restore your actors.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <textarea id="export-code" class="code-box"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <button id="close-export">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-clear">
+        <div class="row">
+            <div class="twelve columns">
+                <h5>Settings</h5>
+                <button id="toggle-delete" class="active toggle">CONFIRM DELETE: ON</button>
+            </div>
+            <div class="twelve-columns">
+                <button id="toggle-clear" class="toggle">CLEAR AFTER ADD: OFF</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="import-page">
+        <div class="container">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Import Actor Data</h1>
+                    <p>Paste your exported code here to restore your actors.</p>
+                    <p class="warning">Please note that importing data will delete any current progress.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <textarea id="import-code" class="code-box"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <button id="start-import">IMPORT</button>
+                    <button id="close-import">CLOSE</button>
+                </div>
             </div>
         </div>
     </div>
