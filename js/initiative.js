@@ -237,6 +237,7 @@ function Character(cid, name, init, ac, str, dex, con, int, wis, cha, hp, notes)
 function createTableRow(cid, name, init, ac, str, dex, con, int, wis, cha, hp, notes) {
     sorted = false;
     $("#next-turn").prop('disabled', true);
+    $("#sort-msg").show();
     if (init == "roll") {
         init = getRandomInt(20) + 1;
     }
@@ -282,6 +283,7 @@ function sortTable() {
     count -= 1;
     sorted = true;
     $("#next-turn").prop('disabled', false);
+    $("#sort-msg").hide();
 }
 
 function getDamage(id) {
