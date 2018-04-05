@@ -324,13 +324,13 @@ function sortTable() {
         keyB = parseInt(keyB);
         safeA = parseInt(safeA);
         safeB = parseInt(safeB);
-        if (keyA < keyB) return -1;
-        if (keyA > keyB) return 1;
+        if (keyA < keyB) return 1;
+        if (keyA > keyB) return -1;
         if (keyA == keyB) {
             if (safeA < safeB) {
-                return -1;
-            } else {
                 return 1;
+            } else {
+                return -1;
             }
         }
         return 0;
