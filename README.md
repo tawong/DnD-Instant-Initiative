@@ -22,5 +22,8 @@ I created this for me and my friends to use. I wanted a little more flexibility 
 ## Deets
 This tool is coded mainly in JavaScript (it's probably inefficient this was a fun project), with HTML and CSS.
 
+## Known Issues
+I think there's a small bug in the position tracking in certain instances. It has not been tested thoroughly yet.
+
 ## Suggestions?
 Reach out to me at twongersdev@gmail.com
