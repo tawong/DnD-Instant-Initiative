@@ -210,3 +210,7 @@ code{
 pre{
     background: #F1F1F1;
 }
+
+tr div.name{
+    width: 150px;
+}
