@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Instant Initiative - DnD Tracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/skeleton.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/initiative.js"></script>
+
+</head>
+
+<body>
+    <div class="container-max" id="header">
+        <div class="row">
+            <div class="twelve columns">
+                <h1>Instant Initiative</h1>
+                <p class="caption">A DnD Initiative Tracker</p>
+                <button id="collapse" class="open">COLLAPSE CREATOR</button>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <button id="toggle-delete" class="active toggle">CONFIRM DELETE: ON</button>
+                <button id="toggle-clear" class="toggle">CLEAR AFTER ADD: OFF</button>
+                </div>
+            </div>    
+        </div>
+        <div class="row creator">
+            <div class="twelve columns">
+                <button id="clear-input">CLEAR ENTRY</button>
+                <button id="easy-enemy">CREATE EASY</button>
+                <button id="medium-enemy">CREATE MEDIUM</button>
+                <button id="hard-enemy">CREATE HARD</button>
+                <button id="legendary-enemy">CREATE LEGEND</button>
+            </div>
+        </div>
+    </div>
+    <div class="container creator">
+        <div class="row">
+            <div class="twelve columns">
+                <table id="create-input">
+                    <tbody>
+                        <tr id=create-header>
+                            <th>Name</th>
+                            <th>Init</th>
+                            <th>AC</th>
+                            <th>Str</th>
+                            <th>Dex</th>
+                            <th>Con</th>
+                            <th>Int</th>
+                            <th>Wis</th>
+                            <th>Cha</th>
+                            <th>HP</th>
+                            <th>Notes</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr id="create-fields">
+                            <td>
+                                <input id="name">
+                            </td>
+                            <td>
+                                <input id="init" value="roll">
+                            </td>
+                            <td>
+                                <input id="ac">
+                            </td>
+                            <td>
+                                <input id="str">
+                            </td>
+                            <td>
+                                <input id="dex">
+                            </td>
+                            <td>
+                                <input id="con">
+                            </td>
+                            <td>
+                                <input id="int">
+                            </td>
+                            <td>
+                                <input id="wis">
+                            </td>
+                            <td>
+                                <input id="cha">
+                            </td>
+                            <td>
+                                <input id="hp">
+                            </td>
+                            <td>
+                                <textarea id="notes" rows="3"></textarea>
+                            </td>
+                            <td>
+                                <button id="create-actor" class="button-primary">ADD</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <p class="turn-holder">Turns Elapsed: <span id="turns">0</span></p>
+                <table id="view-actors">
+                    <tbody>
+                        <tr id=actor-header data-init="0">
+                            <th>Name</th>
+                            <th>Init</th>
+                            <th>AC</th>
+                            <th>Str</th>
+                            <th>Dex</th>
+                            <th>Con</th>
+                            <th>Int</th>
+                            <th>Wis</th>
+                            <th>Cha</th>
+                            <th>HP</th>
+                            <th>Notes</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <button id="sort-actors" class="button-primary">SORT</button>
+                <button id="wipe-actors">RESET ALL</button>
+            </div>
+            <div class="six columns">
+                <button id="next-turn" class="button-primary" disabled>ADVANCE TURN</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

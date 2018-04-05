@@ -1,0 +1,139 @@
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    margin-bottom: 0px;
+}
+
+.caption {
+    color: #888;
+    font-size: 10px;
+}
+
+th{
+    text-align: center;
+}
+
+th:first-child, td:first-child {
+    padding-left: 8px;
+}
+
+.actor-live td:nth-child(1){
+    width: 150px;
+}
+
+td {
+    text-align: center;
+    padding: 0px 0px;
+    padding: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#create-fields input,
+.hp {
+    width: 35px;
+}
+
+.init{
+    font-weight: 600;
+    background: #ebebeb;
+}
+
+.hp{
+    text-align: center;
+    font-weight: 600;
+    border: 0px;
+    background: #ffebeb;
+    border-bottom: 1px solid #222;
+    margin-bottom: 0px;
+}
+
+input#name {
+    width: 100px;
+}
+
+textarea {
+    vertical-align: middle;
+    resize: none;
+    height: 50px;
+    margin: 0;
+    min-height: 0px;
+    font-size: 12px;
+}
+
+.turn-holder{
+    margin-bottom: 0;
+    color: #444;
+}
+
+.actor-live td:nth-child(1){
+    text-align: left;
+}
+
+.delete-actor, .dmg-actor, .heal-actor{
+    padding: 0px 12px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+#wipe-actors{
+    background: #960000;
+    color: white;
+}
+
+#next-turn{
+    background: #06bf71;
+    color: white;
+}
+
+.delete-actor {
+    background: #9d0000;
+    transform: scale(0.70);
+}
+
+.dmg-actor {
+    background: #b18100;
+    transform: scale(0.85);
+}
+
+.heal-actor {
+    background: #009d1e;
+    transform: scale(0.85);
+}
+
+.button-holder {
+    text-align: center;
+}
+
+#clear-input{
+    background: #00b196;
+}
+
+#collapse{
+    background: #5d006d;
+}
+
+button{
+    color: white !important;
+    background: #8497cb;
+}
+
+button:hover {
+    color: white !important;;
+}
+
+button[disabled]{
+    background-color: gray !important;
+}
+
+.toggle{
+    transition: background 0.6s;
+    transform: scale(0.70);
+    background: #808080;
+}
+
+.toggle.active{
+    background: #47ce00;
+}
