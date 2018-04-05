@@ -178,7 +178,8 @@ button[disabled]{
 .code-box{
     width: 500px;
     height: 200px;
-    margin: 50px;
+    margin-top: 10px;
+    margin-bottom: 35px;
     font-size: 14px;
 }
 
@@ -190,4 +191,22 @@ button[disabled]{
 .warning{
     color: red;
     font-weight: bold;
+}
+
+.secondary{
+    margin-top: 25px;
+    color: #747474;
+}
+
+code{
+    color: black !important;
+}
+
+.code-head{
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+pre{
+    background: #F1F1F1;
 }
