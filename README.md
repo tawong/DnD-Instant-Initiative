@@ -26,10 +26,10 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 ```
 
 ###### Settings Value
-0 - Delete Confirmation == FALSE & CLEAR AFTER ADD == FALSE
-1 - Delete Confirmation == TRUE & CLEAR AFTER ADD == FALSE
-2 - Delete Confirmation == TRUE & CLEAR AFTER ADD == TRUE
-3 - Delete Confirmation == FALSE & CLEAR AFTER ADD == TRUE
++ 0 - Delete Confirmation == FALSE & CLEAR AFTER ADD == FALSE
++ 1 - Delete Confirmation == TRUE & CLEAR AFTER ADD == FALSE
++ 2 - Delete Confirmation == TRUE & CLEAR AFTER ADD == TRUE
++ 3 - Delete Confirmation == FALSE & CLEAR AFTER ADD == TRUE
 
 ## Possible updates
 + Create actor with CSV input
