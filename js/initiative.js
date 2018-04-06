@@ -26,6 +26,8 @@ $(function () {
         if (i_init == "roll") {
             i_init = getRandomInt(20) + 1;
         }
+        
+        i_hp = parseInt(i_hp);
 
         if (i_hp == "") {
             i_hp = 0;
@@ -206,7 +208,7 @@ $(function () {
 
     $(document).on('input change keyup', '.hp input', function () {
         var myindex = $(this).parent().parent().attr("data-actor");
-        actors[myindex].hp = $(this).val();
+        actors[myindex].hp = parseInt($(this).val());
     });
 
 
@@ -348,7 +350,7 @@ function sortTable() {
 
 function getDamage(id) {
     var damage = prompt("How much damage?");
-    if (isNaN(damage)) {
+    if ((isNaN(damage)) ||(damage == null)) {
         return actors[id].hp;
     } else {
         var final_hp = actors[id].hp -= parseInt(damage);
@@ -359,7 +361,7 @@ function getDamage(id) {
 
 function healDamage(id) {
     var heal = prompt("How much to heal?");
-    if (isNaN(heal)) {
+    if ((isNaN(heal)) ||(heal == null)) {
         return actors[id].hp;
     } else {
         var final_hp = actors[id].hp += parseInt(heal);
