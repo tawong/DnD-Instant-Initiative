@@ -32,7 +32,7 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 + 3 - Delete Confirmation == FALSE & CLEAR AFTER ADD == TRUE
 
 ## Possible updates
-+ Create actor with CSV input
++ ~Create actor with CSV input~ JSON Input supported (See Advanced Importing)!
 + ~Save current page data~ Completed!
 + Other things I have thought about but since forgotten
 
@@ -40,7 +40,12 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 This tool is coded mainly in JavaScript (it's probably inefficient as this was a fun project), with HTML and CSS.
 
 ## Known Issues
-~I think there's a small bug in the position tracking in certain instances.~ This should be fixed
+In certain scenarios, the green "active player" overlay will pass on to the table header.
+
+###### Fixed
+~I think there's a small bug in the position tracking in certain instances.~ Fixed
+~Damage returning NaN and Hp being calculated as a String.~ Fixed
+~I think there's a small bug in the position tracking in certain instances.~ Fixed
 
 ## Suggestions?
 Reach out to me at twongersdev@gmail.com or post here on GitHub
