@@ -52,7 +52,7 @@ $(function () {
         var i_wis = getRandomInt(7) + getRandomInt(5) + 3;
         var i_cha = getRandomInt(7) + getRandomInt(5) + 3;
         var i_hp = getRandomInt(15) + 15;
-        var i_notes = $("#notes").val();
+        var i_notes = "";
 
         actors[i_id] = new Character(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
         createTableRow(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
@@ -70,7 +70,7 @@ $(function () {
         var i_wis = getRandomInt(12) + getRandomInt(5) + 3;
         var i_cha = getRandomInt(12) + getRandomInt(5) + 3;
         var i_hp = getRandomInt(60) + 80;
-        var i_notes = $("#notes").val();
+        var i_notes = "";
 
         actors[i_id] = new Character(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
         createTableRow(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
@@ -88,7 +88,7 @@ $(function () {
         var i_wis = getRandomInt(13) + getRandomInt(5) + 4;
         var i_cha = getRandomInt(13) + getRandomInt(5) + 4;
         var i_hp = getRandomInt(80) + 295;
-        var i_notes = $("#notes").val();
+        var i_notes = "";
 
         actors[i_id] = new Character(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
         createTableRow(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
@@ -106,7 +106,7 @@ $(function () {
         var i_wis = getRandomInt(13) + 11;
         var i_cha = getRandomInt(13) + 11;
         var i_hp = getRandomInt(200) + 396;
-        var i_notes = $("#notes").val();
+        var i_notes = "";
 
         actors[i_id] = new Character(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
         createTableRow(i_id, i_name, i_init, i_ac, i_str, i_dex, i_con, i_int, i_wis, i_cha, i_hp, i_notes);
