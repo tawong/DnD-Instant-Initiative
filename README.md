@@ -3,7 +3,7 @@
 Access the tool here: https://tawong.github.io/DnD-Instant-Initiative/
 
 ## What is it?
-Instant Initiative is an initiative tracker for DnD 5e created as a side project.
+Instant Initiative is an initiative tracker for Dungeons and Dragons (DnD) 5e created as a side project.
 
 ## Why should I use it?
 I created this for me and my friends to use. I wanted a little more flexibility than the basic tools available but I was not interested in the super complex tools that integrate all the DnD SRD and monster data. If you are looking for a tool in-between - this is for you!
