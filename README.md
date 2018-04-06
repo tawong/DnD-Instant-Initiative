@@ -43,9 +43,9 @@ This tool is coded mainly in JavaScript (it's probably inefficient as this was a
 In certain scenarios, the green "active player" overlay will pass on to the table header.
 
 ###### Fixed
-~I think there's a small bug in the position tracking in certain instances.~ Fixed
-~Damage returning NaN and Hp being calculated as a String.~ Fixed
-~I think there's a small bug in the position tracking in certain instances.~ Fixed
++ ~I think there's a small bug in the position tracking in certain instances.~ Fixed
++ ~Damage returning NaN and Hp being calculated as a String.~ Fixed
++ ~I think there's a small bug in the position tracking in certain instances.~ Fixed
 
 ## Suggestions?
 Reach out to me at twongersdev@gmail.com or post here on GitHub
