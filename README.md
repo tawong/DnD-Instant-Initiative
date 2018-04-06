@@ -40,12 +40,13 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 This tool is coded mainly in JavaScript (it's probably inefficient as this was a fun project), with HTML and CSS.
 
 ## Known Issues
-In certain scenarios, the green "active player" overlay will pass on to the table header.
++ In certain scenarios, the green "active player" overlay will pass on to the table header.
 
-###### Fixed
-+ ~I think there's a small bug in the position tracking in certain instances.~ Fixed
-+ ~Damage returning NaN and Hp being calculated as a String.~ Fixed
-+ ~I think there's a small bug in the position tracking in certain instances.~ Fixed
+###### Flyswatter
++ Fixed an issue where auto-generating an enemy would pull notes from the character creator.
++ Fixed an issue where cancelling the damage prompt would return NaN.
++ Fixed an issue where HP was being calculated as a String and breaking the tool.
++ Fixed an issue where deleting the active player messed up the overlay.
 
 ## Suggestions?
 Reach out to me at twongersdev@gmail.com or post here on GitHub
