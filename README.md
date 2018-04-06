@@ -1,5 +1,7 @@
 # DnD Instant Initiative
 
+Access the tool here: https://tawong.github.io/DnD-Instant-Initiative/
+
 ## What is it?
 Instant Initiative is an initiative tracker for DnD 5e created as a side project.
 
