@@ -350,7 +350,7 @@ function sortTable() {
 
 function getDamage(id) {
     var damage = prompt("How much damage?");
-    if ((isNaN(damage)) ||(damage == null)) {
+    if ((isNaN(damage)) ||(damage == null) || (damage == "")) {
         return actors[id].hp;
     } else {
         var final_hp = actors[id].hp -= parseInt(damage);
@@ -361,7 +361,7 @@ function getDamage(id) {
 
 function healDamage(id) {
     var heal = prompt("How much to heal?");
-    if ((isNaN(heal)) ||(heal == null)) {
+    if ((isNaN(heal)) ||(heal == null) || (heal == "")) {
         return actors[id].hp;
     } else {
         var final_hp = actors[id].hp += parseInt(heal);
