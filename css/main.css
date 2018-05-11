@@ -59,7 +59,7 @@ th:first-child, td:first-child {
     margin-bottom: 0px;
 }
 
-.init input, .hp input{
+.init input, .hp input, .name input{
     text-align: center;
     margin-bottom: 0;
     background: transparent;

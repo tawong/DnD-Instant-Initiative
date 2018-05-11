@@ -303,7 +303,7 @@ function createTableRow(cid, name, init, ac, str, dex, con, int, wis, cha, hp, n
     $("#next-turn").prop('disabled', true);
     $("#sort-msg").show();
 
-    $("#view-actors tbody").append("<tr data-actor='" + cid + "' data-init='" + init + "'id=actor-" + cid + " class='actor-live'><td><div class='name'>" + name + "</div></td><td class='init'><input value='" + init + "'></td><td>" + ac + "</td><td>" + str + "</td><td>" + dex + "</td><td>" + con + "</td><td>" + int + "</td><td>" + wis + "</td><td>" + cha + " </td><td class='hp'><input value='" + hp + "'></td><td><textarea class='note-holder'>" + notes + "</textarea></td><td class='button-holder'><button class='dmg-actor'>Damage</button></td><td class='button-holder'><button class='heal-actor'>Heal</button></td><td><button class='delete-actor'>Delete</button></td></tr>");
+    $("#view-actors tbody").append("<tr data-actor='" + cid + "' data-init='" + init + "'id=actor-" + cid + " class='actor-live'><td class='name'><input value='" + name + "'></td><td class='init'><input value='" + init + "'></td><td>" + ac + "</td><td>" + str + "</td><td>" + dex + "</td><td>" + con + "</td><td>" + int + "</td><td>" + wis + "</td><td>" + cha + " </td><td class='hp'><input value='" + hp + "'></td><td><textarea class='note-holder'>" + notes + "</textarea></td><td class='button-holder'><button class='dmg-actor'>Damage</button></td><td class='button-holder'><button class='heal-actor'>Heal</button></td><td><button class='delete-actor'>Delete</button></td></tr>");
 
     global_id += 1;
 }
