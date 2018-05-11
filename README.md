@@ -3,10 +3,10 @@
 Access the tool here: https://tawong.github.io/DnD-Instant-Initiative/
 
 ## What is it?
-Instant Initiative is an initiative tracker for Dungeons and Dragons (DnD) 5e created as a side project.
+Instant Initiative is an initiative tracker for Dungeons and Dragons (DnD) 5e created as a side project. It allows you to track battle progress of your players and enemies in an intuitive and speedy interface. It is lightweight, with a couple of awesome features that make it easy to manage random enemies, stats, damage, and healing.
 
 ## Why should I use it?
-I created this for me and my friends to use. I wanted a little more flexibility than the basic tools available but I was not interested in the super complex tools that integrate all the DnD SRD and monster data. If you are looking for a tool in-between - this is for you!
+I created this for me and my friends to use. I wanted a little more flexibility than the basic tools available but I was not interested in the super complex tools that integrate all the DnD SRD and monster data. If you are looking for a tool in-between, this is for you!
 
 ## Features (TL;DR)
 + Track multiple actors by initiative
@@ -34,17 +34,24 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 + 3 - Delete Confirmation == FALSE & CLEAR AFTER ADD == TRUE
 
 ## Possible updates
++ ~Make names editable! Added in v1.4!
 + ~Create actor with CSV input~ JSON Input supported (See Advanced Importing)!
 + ~Save current page data~ Completed!
 + Other things I have thought about but since forgotten
 
 ## Ingredients
-This tool is coded mainly in JavaScript (it's probably inefficient as this was a fun project), with HTML and CSS.
+This tool is coded mainly in JavaScript (it's probably inefficient - this was a fun project), with HTML and CSS.
+
+## Version/Latest Updates
+Version 1.4
+
++ Actor names are now editable!
 
 ## Known Issues
 + In certain scenarios, the green "active player" overlay will pass on to the table header.
 
 ###### Flyswatter
++ Fixed an issue where edited names were not being exported correctly.
 + Fixed an issue where auto-generating an enemy would pull notes from the character creator.
 + Fixed an issue where cancelling the damage prompt would return NaN.
 + Fixed an issue where HP was being calculated as a String and breaking the tool.

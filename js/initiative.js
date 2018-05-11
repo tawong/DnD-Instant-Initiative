@@ -210,6 +210,11 @@ $(function () {
         var myindex = $(this).parent().parent().attr("data-actor");
         actors[myindex].hp = parseInt($(this).val());
     });
+    
+    $(document).on('input change keyup', '.name input', function () {
+        var myindex = $(this).parent().parent().attr("data-actor");
+        actors[myindex].name = $(this).val();
+    });
 
 
 
