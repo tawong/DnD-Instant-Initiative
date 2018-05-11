@@ -34,7 +34,7 @@ If you are unsure, begin your input code with ```1&|``` or try exporting to see 
 + 3 - Delete Confirmation == FALSE & CLEAR AFTER ADD == TRUE
 
 ## Possible updates
-+ ~Make names editable! Added in v1.4!
++ ~Make names editable~ Added in v1.4!
 + ~Create actor with CSV input~ JSON Input supported (See Advanced Importing)!
 + ~Save current page data~ Completed!
 + Other things I have thought about but since forgotten
